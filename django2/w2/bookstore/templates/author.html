@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Об авторе</title>
+</head>
+<body>
+    <a href="{% url 'books' %}"> <h1> К списку книг... </h1> </a>
+    <h2> Имя: </h2>
+    <h3>{{ author.first_name }}</h3>
+    <h2> Фамилия: </h2>
+    <h3>{{ author.last_name}}</h3>
+    <h2> Возраст: </h2>
+    <h3>{{ author.age}}</h3>
+    <h2> Книги автора: </h2>
+    {% for i in books %}
+    <h3><li>  <a href="{% url 'book_description' i.pk %}"> {{i.title}}</a></li></h3>
+    {% endfor %}
+    <h3> Нажмите на название книги, чтобы перейти к её описанию... </h3>
+
+</body>
+</html>
